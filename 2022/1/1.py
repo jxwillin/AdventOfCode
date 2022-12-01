@@ -5,14 +5,17 @@ from utils import *
 
 max_v = 0
 v = 0
-for x in read_lines("input.1.txt"):
+def if_max_store(x):
+    global max_v
+    if x > max_v:
+        max_v = x
+
+for x in read_lines("test.1.txt"):
     if x != "":
         v += int(x)
     else:
-        if v > max_v:
-            max_v = v
+        if_max_store(v)
         v = 0
-if v > max_v:
-    max_v = v
+if_max_store(v)
 v = 0
 print(max_v)
